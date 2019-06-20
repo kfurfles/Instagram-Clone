@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
-
-const PostSchema = new mongoose.Schema({
+const { Schema, model } = require('mongoose')
+const CommentSchema = require('./Comment')
+const PostSchema = new Schema({
     author: String,
     place: String,
     description: String,
@@ -9,10 +9,11 @@ const PostSchema = new mongoose.Schema({
     likes:{
         type: Number,
         default: 0
-    }
+    },
+    comments:[CommentSchema]
 },
 {
     timestamps: true
 })
 
-module.exports = mongoose.model('Post', PostSchema)
+module.exports = model('Post', PostSchema)

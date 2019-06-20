@@ -3,11 +3,15 @@ const mongoose = require('mongoose')
 const path = require('path')
 const cors = require('cors')
 const fs = require('fs')
+const bodyParser = require('body-parser')
+
 
 const app = express();
+app.use(bodyParser.json());
+
 const options = {
-    key: fs.readFileSync('./file.pem'),
-    cert: fs.readFileSync('./file.crt')
+    key: fs.readFileSync(path.join(path.resolve(__dirname,'..'),'file.pem')),
+    cert: fs.readFileSync(path.join(path.resolve(__dirname,'..'),'file.crt'))
   };
 const server = require('https').createServer(options, app)
 const io = require('socket.io')(server)

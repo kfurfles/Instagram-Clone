@@ -29,7 +29,8 @@ module.exports = {
             place,
             description,
             hashtags,
-            image: fileName
+            image: fileName,
+            comments: []
         })
 
         req.io.emit('post', createdPost)
