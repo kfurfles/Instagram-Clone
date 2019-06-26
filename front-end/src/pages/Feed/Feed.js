@@ -60,6 +60,12 @@ class Feed extends Component {
         api.post(`/posts/${_id}/comment`,{ comment })
     }
 
+    formatedHashs = (hashStr) => {
+        return hashStr.split(' ').map(hash => (
+            hash.replace(/([^\w\s])?([a-zA-Z0-9]+)/ig, '#$2 ')
+        ))
+    }
+
     render() {
         return ( <section id = "post-list" > 
                 {this.state.feed.map(post => 
@@ -91,7 +97,7 @@ class Feed extends Component {
                         <strong> { post.likes } curtidas </strong>
 
                         <p> { post.description } 
-                            <span> { post.hashtags } </span>
+                            <span> { this.formatedHashs(post.hashtags) } </span>
                         </p>
                         <div className="comment-list">
                             {post.comments.map(({comment, _id}) => <p key={_id}>{comment}</p>)}
