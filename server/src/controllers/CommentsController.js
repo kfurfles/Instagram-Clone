@@ -7,7 +7,7 @@ const setValueByProp = (oldValue, newValue, prop) => newValue[prop] ? newValue[p
 module.exports = {
     async store(req, res){
         let post = await Post.findById(req.params.id)
-        const newComment = new Comment({ ...req.body })
+        const newComment = { ...req.body }
         post.comments.push(newComment)
         await post.save()
 

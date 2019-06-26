@@ -1,0 +1,52 @@
+.commentary-box{
+    border-top: 1px solid #efefef;
+    color: #999;
+    flex-shrink: 0;
+    font-size: 14px;
+    line-height: 18px;
+    min-height: 56px;
+    justify-content: center;
+    margin-top: 4px;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.commentary-box form{
+    flex-shrink: 1;
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.commentary-box textarea{
+    background: 0 0;
+    border: 0;
+    color: #262626;
+    font-size: inherit;
+    outline: 0;
+    padding: 0;
+    resize: none;
+    display: flex;
+    flex-grow: 1;
+    line-height: 18px;
+    height: 100%;
+}
+
+.commentary-box button{
+    border: 0;
+    color: #3897f0;
+    display: inline;
+    padding: 0;
+    font-weight: bold;
+}
+.commentary-box button:hover{
+    cursor: pointer;
+}
+
+.commentary-box button:disabled{
+    opacity: .3;
+}
+

@@ -662,4 +662,4 @@ MigrationBackup/
 # End of https://www.gitignore.io/api/node,reactnative,visualstudio
 
 .vscode
-server/uploads/resized/*.**
+server/uploads/resized/*.jpg
