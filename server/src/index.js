@@ -1,3 +1,4 @@
+require('dotenv/config')
 const express = require('express')
 const mongoose = require('mongoose')
 const path = require('path')
@@ -5,6 +6,7 @@ const cors = require('cors')
 const fs = require('fs')
 const bodyParser = require('body-parser')
 
+console.log()
 
 const app = express();
 app.use(bodyParser.json());
@@ -16,13 +18,10 @@ const options = {
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)
 
-mongoose.connect('mongodb+srv://master:master123@marvelcluster-6d3ar.mongodb.net/omni?retryWrites=true&w=majority', {
-    useNewUrlParser: true
-})
+mongoose.connect(process.env.DB_STRING, { useNewUrlParser: true })
 
 app.use((req, res, next) => {
     req.io = io;
-
     next()
 })
 
